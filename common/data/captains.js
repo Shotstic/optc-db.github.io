@@ -8067,6 +8067,22 @@ window.captains = {
         atk: function(p){ return p.unit.type == "DEX" ? 1.75 : 1; },
         hp: function(p){ return p.unit.type == "DEX" ? 1.2 : 1; },
     },
+    2330: {
+        atk: function(p) {
+            if(p.classCount.Shooter == 6){
+                return ((CrunchUtils.getOrbMultiplier(p.orb, p.unit.type, p.unit.class, 1, 2, [p.friendCaptain, p.captain], p.effectName) == 2) && (p.orb != 'g')) ? 3.9 : 3.25;
+            }
+            else
+                return 1;
+        },
+        hp: function(p) {
+            if(p.classCount.Shooter == 6){
+                return 1.2;
+            }
+            else
+                return 1;
+        }
+    },
     2400: {
         damageSorter: function(d) { return CrunchUtils.okamaSort(d, ['QCK', 'DEX', 'STR']); },
         hitAtk: function(p) {
